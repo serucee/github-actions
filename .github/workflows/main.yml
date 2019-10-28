@@ -12,7 +12,7 @@ jobs: # contains all jobs
 #        run: echo "$GITHUB_CONTEXT"
       - name: Get ref
         run: |
-          git fetch --tags &&
+          git fetch --tags
           CURRENT_TAG="$(git tag | tail -1)"
       - name: Echo
         run: echo ${CURRENT_TAG}
