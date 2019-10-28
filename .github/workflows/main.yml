@@ -6,7 +6,9 @@ jobs: # contains all jobs
     runs-on: ubuntu-latest
     steps:
       - name: Test echo
-        run: echo ${{ github }}
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 #  build:
 #    runs-on: ubuntu-latest
 #    steps:
