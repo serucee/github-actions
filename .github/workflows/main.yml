@@ -12,8 +12,10 @@ jobs: # contains all jobs
 #        run: echo "$GITHUB_CONTEXT"
       - name: Get ref
         run: |
-          git fetch --tags
-          git tag | tail -1
+          git fetch --tags &&
+          CURRENT_TAG="$(git tag | tail -1)"
+      - name: Echo
+        run: echo ${CURRENT_TAG}
         # set env: BUMP to major/minor/patch/false (false = all others) repository
 #  build:
 #    runs-on: ubuntu-latest
