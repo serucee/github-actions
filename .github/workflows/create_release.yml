@@ -15,6 +15,9 @@ jobs: # contains all jobs
         run: |
           echo "$VERSION_BUMP" > version.txt
           sed -i "s/RC-//g" version.txt
+          sed -i "s/major//g" version.txt
+          sed -i "s/minor//g" version.txt
+          sed -i "s/patch//g" version.txt
       - name: Bump version and push tag
         id: create_tag
         uses: anothrNick/github-tag-action@master
