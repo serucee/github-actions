@@ -12,8 +12,8 @@ jobs: # contains all jobs
 #        run: echo "$GITHUB_CONTEXT"
       - name: Get ref
         run: |
-          chmod a+x scripts/grep-tag.sh &&
-          scripts/grep-tag.sh "${{ github.repository }}"
+          git fetch --tags
+          git tag | tail -1
         # set env: BUMP to major/minor/patch/false (false = all others) repository
 #  build:
 #    runs-on: ubuntu-latest
