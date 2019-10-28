@@ -1,21 +1,27 @@
-name: Test workflow # name displayed in the web interface
-on: push # what triggers this workflow
+name: Create release # name displayed in the web interface
+on:
+  pull_request:
+    types: [closed]
 
 jobs: # contains all jobs
   prepare:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged && startsWith(github.head_ref, 'RC')
     steps:
       - uses: actions/checkout@v1
-      # To use this, in your RC add a commit message with "#major, #minor, #patch" before merging
-      # In future add action that does this automatically (on merge add a commit that updates all version files and adds patch/minor/major, depending on trigger)
-      # e.g. use
+      - name: Define bump for version
+        env:
+          VERSION_BUMP: ${{ github.hread_ref }}
+        run: |
+          echo "$VERSION_BUMP" > version.txt
+          sed -i "s/RC-//g" version.txt
       - name: Bump version and push tag
         id: create_tag
         uses: anothrNick/github-tag-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_BRANCHES: master
-          DEFAULT_BUMP: patch
+          DEFAULT_BUMP: ${{ bump.version }}
       - name: Build Package
         run: zip -r package.zip collection
       - name: Create release notes
