@@ -11,20 +11,28 @@ jobs: # contains all jobs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-#      - name: Create empty tag and release
-#        id: create_tag
-#        uses: anothrNick/github-tag-action@master
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          RELEASE_BRANCHES: master
-#          DEFAULT_BUMP: patch
+      - name: Build Package
+        run: zip -r package.zip collection
       - name: Create release
         id: create_release
-        uses: actions/create-release@v1.0.0
+        uses: csexton/create-release@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: 0.0.2
           release_name: 0.0.2
-          body: testbody
+          body: |
+            Changes in this Release
+            test123
+            abc
 #          draft: true # enable to create a draft which manually has to be released
+      - name: Upload Release Asset
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: package.zip
+          asset_name: package.zip
+          asset_content_type: application/zip
