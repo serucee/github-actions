@@ -5,44 +5,20 @@ jobs: # contains all jobs
   prepare:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-#      - name: Test echo
-#        env:
-#          GITHUB_CONTEXT: ${{ toJson(github) }}
-#        run: echo "$GITHUB_CONTEXT"
-      - name: Get ref
-        run: |
-          git fetch --tags
-          CURRENT_TAG="$(git tag | tail -1)"
-      - name: Echo
-        run: echo ${CURRENT_TAG}
-        # set env: BUMP to major/minor/patch/false (false = all others) repository
-#  build:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@master
-#      - name: Build Package
-#        run: zip -r package.zip collection
-#      - name: Create release
-#        id: create_release
-#        uses: csexton/create-release@master
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          tag_name: 0.0.1 #github.head_ref
-#          release_name: 0.0.1
-#          body: |
-#            Changes in this Release
-#            test123
-#            abc
-##          draft: true # enable to create a draft which manually has to be released
-#      - name: Upload Release Asset
-#        id: upload_release_asset
-#        uses: actions/upload-release-asset@v1.0.1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          upload_url: ${{ steps.create_release.outputs.upload_url }}
-#          asset_path: package.zip
-#          asset_name: package.zip
-#          asset_content_type: application/zip
+      - uses: actions/checkout@v1
+      - name: Bump version and push tag
+        id: create_tag
+        uses: anothrNick/github-tag-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BRANCHES: master
+          DEFAULT_BUMP: patch
+      - name: Build Package
+        run: zip -r package.zip collection
+      - name: Create Release
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "package.zip"
+          bodyFile: "body.md"
+          tag: ${{ steps.create_tag.outputs.new_tag }}
+          token: ${{ secrets.GITHUB_TOKEN }}
