@@ -1,0 +1,46 @@
+name: Create release
+on:
+  pull_request:
+    types: [closed]
+    # currently bugged
+    #    tags:
+    #      - '*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        if: github.event.pull_request.merged && startsWith(github.head_ref, 'RC')
+      - name: Bump version and push tag
+        id: create_tag
+        uses: anothrNick/github-tag-action@master
+        if: github.event.pull_request.merged && startsWith(github.head_ref, 'RC')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BRANCHES: master
+          DEFAULT_BUMP: patch
+      - name: Build project
+        run: zip -r package.zip src
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        if: github.event.pull_request.merged && startsWith(github.head_ref, 'RC')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.create_tag.outputs.new_tag }}
+          release_name: Release ${{ steps.create_tag.outputs.new_tag }}
+          body: testbody
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1.0.1
+        if: github.event.pull_request.merged && startsWith(github.head_ref, 'RC')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./package.zip
+          asset_name: package.zip
+          asset_content_type: application/zip

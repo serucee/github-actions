@@ -1,0 +1,31 @@
+name: Test release workflow # name displayed in the web interface
+on: push # what triggers this workflow
+
+jobs: # contains all jobs
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test echo
+        run: echo "Hello World!"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Create tag
+        id: create_tag
+        uses: anothrNick/github-tag-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BRANCHES: master
+          DEFAULT_BUMP: patch
+#      - name: Create Release
+#        id: create_release
+#        uses: actions/create-release@v1.0.0
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: ${{ steps.create_tag.outputs.new_tag }}
+#          release_name: Release ${{ steps.create_tag.outputs.new_tag }}
+#          body: testbody
+#          draft: false
+#          prerelease: false
