@@ -1,14 +1,19 @@
-name: Test release workflow # name displayed in the web interface
+name: Test workflow # name displayed in the web interface
 on: push # what triggers this workflow
 
 jobs: # contains all jobs
   prepare:
     runs-on: ubuntu-latest
     steps:
-      - name: Test echo
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+#      - name: Test echo
+#        env:
+#          GITHUB_CONTEXT: ${{ toJson(github) }}
+#        run: echo "$GITHUB_CONTEXT"
+      - name: Get ref
+        run: |
+          chmod a+x scripts/grep-tag.sh &&
+          scripts/grep-tag.sh "${{ github.repository }}"
+        # set env: BUMP to major/minor/patch/false (false = all others) repository
 #  build:
 #    runs-on: ubuntu-latest
 #    steps:
