@@ -16,7 +16,7 @@ jobs: # contains all jobs
       - name: Build Package
         run: zip -r package.zip collection
       - name: Create Release
-      - uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1
         with:
           artifacts: "package.zip"
           bodyFile: "body.md"
