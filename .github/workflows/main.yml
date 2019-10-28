@@ -5,6 +5,7 @@ jobs: # contains all jobs
   prepare:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
 #      - name: Test echo
 #        env:
 #          GITHUB_CONTEXT: ${{ toJson(github) }}
