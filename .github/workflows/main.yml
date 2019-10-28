@@ -11,21 +11,20 @@ jobs: # contains all jobs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Create tag
-        id: create_tag
-        uses: anothrNick/github-tag-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_BRANCHES: master
-          DEFAULT_BUMP: patch
-#      - name: Create Release
-#        id: create_release
-#        uses: actions/create-release@v1.0.0
+#      - name: Create empty tag and release
+#        id: create_tag
+#        uses: anothrNick/github-tag-action@master
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          tag_name: ${{ steps.create_tag.outputs.new_tag }}
-#          release_name: Release ${{ steps.create_tag.outputs.new_tag }}
-#          body: testbody
-#          draft: false
-#          prerelease: false
+#          RELEASE_BRANCHES: master
+#          DEFAULT_BUMP: patch
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: 0.0.2
+          release_name: 0.0.2
+          body: testbody
+          draft: true
