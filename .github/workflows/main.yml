@@ -6,33 +6,33 @@ jobs: # contains all jobs
     runs-on: ubuntu-latest
     steps:
       - name: Test echo
-        run: echo "Hello World!"
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Build Package
-        run: zip -r package.zip collection
-      - name: Create release
-        id: create_release
-        uses: csexton/create-release@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: 0.0.1
-          release_name: 0.0.1
-          body: |
-            Changes in this Release
-            test123
-            abc
-#          draft: true # enable to create a draft which manually has to be released
-      - name: Upload Release Asset
-        id: upload_release_asset
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: package.zip
-          asset_name: package.zip
-          asset_content_type: application/zip
+        run: echo ${{ github }}
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@master
+#      - name: Build Package
+#        run: zip -r package.zip collection
+#      - name: Create release
+#        id: create_release
+#        uses: csexton/create-release@master
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: 0.0.1 #github.head_ref
+#          release_name: 0.0.1
+#          body: |
+#            Changes in this Release
+#            test123
+#            abc
+##          draft: true # enable to create a draft which manually has to be released
+#      - name: Upload Release Asset
+#        id: upload_release_asset
+#        uses: actions/upload-release-asset@v1.0.1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }}
+#          asset_path: package.zip
+#          asset_name: package.zip
+#          asset_content_type: application/zip
