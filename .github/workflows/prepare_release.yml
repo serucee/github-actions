@@ -1,0 +1,20 @@
+name: Prepare release # name displayed in the web interface
+on: push
+#  pull_request:
+#    types: [closed]
+
+jobs: # contains all jobs
+  prepare:
+    runs-on: ubuntu-latest
+#    if: github.event.pull_request.merged && startsWith(github.head_ref, 'RC')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Bump version and push tag
+        id: create_tag
+        uses: anothrNick/github-tag-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BRANCHES: master
+          DEFAULT_BUMP: patch
+          WITH_V: true
