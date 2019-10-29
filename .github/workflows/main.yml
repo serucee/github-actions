@@ -17,7 +17,6 @@ jobs: # contains all jobs
       - name: Bump version and push tag
         id: create_tag
         uses: anothrNick/github-tag-action@master
-        run: export DEFAULT_BUMP="version.txt"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_BRANCHES: master
