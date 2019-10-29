@@ -5,8 +5,6 @@ on:
       - master
 
 steps:
-  - uses: actions/checkout@master
-
   # you'll need to add an `id` in order to access output variables
   - uses: codfish/semantic-release-action@master
     id: semantic
