@@ -13,15 +13,17 @@ jobs: # contains all jobs
         env:
           VERSION_BUMP: ${{ github.hread_ref }}
         run: |
-          echo "$VERSION_BUMP" > version.txt
-          sed -i "s/RC-//g" version.txt
+#          echo "$VERSION_BUMP" > version.txt
+          chmod a+x scripts/check_version.sh
+          scripts/check_version.sh
       - name: Bump version and push tag
         id: create_tag
         uses: anothrNick/github-tag-action@master
+        run: export DEFAULT_BUMP="version.txt"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_BRANCHES: master
-          DEFAULT_BUMP: ${{ bump.version }}
+#          DEFAULT_BUMP: ${{ bump.version }}
       - name: Build Package
         run: zip -r package.zip collection
       - name: Create release notes
