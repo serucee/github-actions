@@ -18,3 +18,8 @@ jobs: # contains all jobs
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_BRANCHES: master
           DEFAULT_BUMP: patch
+      - name: Create tag
+        run: |
+          git tag ${{ steps.create_tag.outputs.new_tag }}
+          git push origin ${{ steps.create_tag.outputs.new_tag }}
+#        ${{ steps.create_tag.outputs.new_tag }}
