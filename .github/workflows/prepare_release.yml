@@ -22,7 +22,6 @@ jobs: # contains all jobs
         run: |
           echo ${{ steps.create_tag.outputs.new_tag }}
           ls
-          cd ${{ GITHUB_WORKSPACE }}
           git tag ${{ steps.create_tag.outputs.new_tag }}
           git push origin ${{ steps.create_tag.outputs.new_tag }}
 #        ${{ steps.create_tag.outputs.new_tag }}
