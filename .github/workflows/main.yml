@@ -14,9 +14,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        inputs:
-          branch: master
-          repositoryUrl:
+ #       inputs:
+ #         branch: master
+ #         repositoryUrl:
 
 #      - name: docker push version
 #        if: steps.semantic.outputs.new-release-published == 'true'
