@@ -42,7 +42,7 @@ module.exports = {
 
         ["@semantic-release/github", {
             "assets": [
-                { "path": "wirecardpaymentgateway.zip", "label": "Wirecard PrestaShop Module" }
+                { "path": "package.zip", "label": "Package" }
             ]
         }],
 
