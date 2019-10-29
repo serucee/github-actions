@@ -48,8 +48,8 @@ module.exports = {
 
         ['@semantic-release/npm', { npmPublish: false }],
 
-        ["semantic-release-compatibility-table", {
-            resolveVersionNumbers
-        }]
+        // ["semantic-release-compatibility-table", {
+        //     resolveVersionNumbers
+        // }]
     ]
 };
