@@ -5,8 +5,8 @@ name: Create release # name displayed in the web interface
 #      - refs/tags
 on:
   create:
-    branches:
-    - refs/tags/*
+    tags:
+      - '*'
 jobs: # contains all jobs
   prepare:
     runs-on: ubuntu-latest
