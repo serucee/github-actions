@@ -1,13 +1,12 @@
 name: Create release # name displayed in the web interface
-#on:
-#  push:
-#    branches:
-#      - refs/tags
 on:
   push:
-  #create:
-    tags:
-    - '*'
+    branches:
+      - 'refs/tags/*'
+#on:
+#  push:
+#    tags:
+#    - '*'
 jobs: # contains all jobs
   prepare:
     runs-on: ubuntu-latest
