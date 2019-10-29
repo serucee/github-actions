@@ -10,8 +10,6 @@ jobs: # contains all jobs
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
-          with:
-            token: ${{ secrets.GITHUB_TOKEN }}
       - name: Bump version and push tag
         id: create_tag
         #uses: anothrNick/github-tag-action@master
@@ -22,6 +20,8 @@ jobs: # contains all jobs
           DEFAULT_BUMP: patch
       - name: Create tag
         run: |
+          echo ${{ steps.create_tag.outputs.new_tag }}
+          ls
           cd ${{ GITHUB_WORKSPACE }}
           git tag ${{ steps.create_tag.outputs.new_tag }}
           git push origin ${{ steps.create_tag.outputs.new_tag }}
