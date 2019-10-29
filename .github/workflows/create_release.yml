@@ -1,12 +1,16 @@
 name: Create release # name displayed in the web interface
+# does not get triggered for whatever reason unless directly using
+# git tag ***
+# git push origin ***
+#on:
+#  push:
+#    branches:
+#      - 'refs/tags/*'
+
 on:
   push:
     branches:
-      - 'refs/tags/*'
-#on:
-#  push:
-#    tags:
-#    - '*'
+    - '*/refs/tags/*'
 jobs: # contains all jobs
   prepare:
     runs-on: ubuntu-latest
