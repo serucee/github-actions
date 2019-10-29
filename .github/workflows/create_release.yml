@@ -4,7 +4,8 @@ name: Create release # name displayed in the web interface
 #    branches:
 #      - refs/tags
 on:
-  create:
+  push:
+  #create:
     tags:
     - '*'
 jobs: # contains all jobs
