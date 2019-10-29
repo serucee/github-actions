@@ -6,7 +6,7 @@ name: Create release # name displayed in the web interface
 on:
   create:
     tags:
-      - '*'
+    - '*'
 jobs: # contains all jobs
   prepare:
     runs-on: ubuntu-latest
