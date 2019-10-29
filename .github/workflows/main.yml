@@ -21,10 +21,9 @@ jobs: # contains all jobs
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_BRANCHES: master
           DEFAULT_BUMP: patch
-      - name: Install glob
-        run: npm install --save glob
       - name: GH Release
-        uses: softprops/action-gh-release@master
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
