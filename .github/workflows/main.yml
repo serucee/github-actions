@@ -3,19 +3,21 @@ on:
   push:
     branches:
       - master
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      # you'll need to add an `id` in order to access output variables
+      - uses: codfish/semantic-release-action@master
+        id: semantic
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-steps:
-  # you'll need to add an `id` in order to access output variables
-  - uses: codfish/semantic-release-action@master
-    id: semantic
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  - name: docker push version
-    if: steps.semantic.outputs.new-release-published == 'true'
-    run: |
-      docker tag some-image some-image:$TAG
-      docker push some-image:$TAG
-    env:
-      TAG: v$RELEASE_VERSION
+      - name: docker push version
+        if: steps.semantic.outputs.new-release-published == 'true'
+        run: |
+          docker tag some-image some-image:$TAG
+          docker push some-image:$TAG
+        env:
+          TAG: v$RELEASE_VERSION
