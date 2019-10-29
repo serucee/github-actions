@@ -1,8 +1,8 @@
 name: Create release # name displayed in the web interface
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - refs/tags
 
 jobs: # contains all jobs
   prepare:
