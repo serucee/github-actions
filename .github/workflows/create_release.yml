@@ -13,7 +13,7 @@ jobs:
         with:
           release_branch: master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 0b745af2a502b8338c203a938a0d7bfaadb2378b#${{ secrets.GITHUB_TOKEN }}
 #      - name: Update release notes
 #        uses: Roang-zero1/github-create-release-action@master
 #      - name: Build assets
