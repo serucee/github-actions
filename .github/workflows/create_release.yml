@@ -18,7 +18,6 @@ jobs:
         uses: serucee/semver-release-action@master
         with:
           release_branch: master
-          update_existing: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      - name: Update release notes
