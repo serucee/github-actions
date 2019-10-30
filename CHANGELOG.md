@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.0.0
+
+* Added pr-labeler
+* Some more breaking changes
+* Yes
+
 ## v3.0.1
 
 Bump v3.0.0-major test changelog
