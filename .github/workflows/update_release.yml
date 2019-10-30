@@ -14,5 +14,5 @@ jobs:
         uses: Roang-zero1/github-create-release-action@master
         with:
           update_existing: true
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
