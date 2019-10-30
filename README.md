@@ -1,5 +1,7 @@
 # github-actions  
 ## General information
+Test repo to play around with github actions  
+
 /.github/workflows contains the currently used workflows  
 /testing_workflows contains workflows that are currently beeing evaluated, tested, or kept to play around  
 
