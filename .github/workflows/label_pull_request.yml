@@ -11,3 +11,7 @@ jobs:
       - name: Label pull request
         run: echo "Pull requests gets labeled depending on origin branch name"
         # possible values: patch, minor, major, other stuff defined = no release
+      - name: PR Labeler
+        uses: TimonVS/pr-labeler.yml-action@v3.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
