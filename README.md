@@ -1,7 +1,7 @@
 # github-actions  
 ### General information
 /.github/workflows contains the currently used workflows  
-/collection contains workflows that are currently beeing evaluated  
+/testing_workflows contains workflows that are currently beeing evaluated, tested, or kept to play around  
 
 ### Explanation for every workflow.yml file  
 
