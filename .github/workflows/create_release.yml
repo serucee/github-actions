@@ -13,7 +13,7 @@ jobs:
       - name: Build assets
         run: echo "Assets built!"
       - name: Verify Changelog
-        run: echo "Verify if Changelog has correct version header"
+        run: echo "Verify if Changelog has correct version header" # check if CHANGELOG.md contains ## next semver tag
       - name: Tag and prepare release
         id: tag_and_prepare_release
         uses: K-Phoen/semver-release-action@master
