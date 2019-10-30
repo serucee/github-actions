@@ -1,4 +1,4 @@
-name: Release
+name: Create Release
 
 on:
   pull_request:
@@ -8,9 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Tag
+      - name: Tag and prepare release
         uses: K-Phoen/semver-release-action@master
         with:
           release_branch: master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Update release notes
+#        uses: Roang-zero1/github-create-release-action@master
+#      - name: Build assets
+#      - name: Upload assets

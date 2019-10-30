@@ -1,0 +1,18 @@
+name: Update Release
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build assets
+        run: echo "Assets built!"
+      - name: Verify Changelog
+        run: echo "Verify if Changelog has correct version header"
+      - name: Upload release notes and package
+        uses: Roang-zero1/github-create-release-action@master
+        with:
+          update_existing: true
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,13 @@
+name: Label Pull Request
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label pull request
+        run: echo "Pull requests gets labeled depending on origin branch name"
+        # possible values: patch, minor, major, other stuff defined = no release
