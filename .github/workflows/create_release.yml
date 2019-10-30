@@ -30,7 +30,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CREATED_TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
-#      - name: Update release notes
-#        uses: Roang-zero1/github-create-release-action@master
-#      - name: Build assets
-#      - name: Upload assets
