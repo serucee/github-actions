@@ -10,9 +10,9 @@ jobs:
     steps:
       - name: Label pull request
         run: echo "Pull requests gets labeled depending on origin branch name"
-        # possible values: patch, minor, major, other stuff defined = no release
       - name: Label pull request for rc
         if: github.base_ref == 'master'
         uses: TimonVS/pr-labeler-action@v3.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # possible values: patch, minor, major, other stuff defined = no release
