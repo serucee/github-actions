@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Tag and prepare release
         id: tag_and_prepare_release
-        uses: serucee/semver-release-action@master
+        uses: K-Phoen/semver-release-action@master
         with:
           release_branch: master
         env:
