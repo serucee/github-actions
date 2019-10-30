@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Build assets
+      run: echo "Assets built!"
+      - name: Verify Changelog
+        run: echo "Verify if Changelog has correct version header"
       - name: Tag and prepare release
         id: tag_and_prepare_release
         uses: K-Phoen/semver-release-action@master
@@ -16,12 +20,6 @@ jobs:
           release_branch: master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build assets
-        if: steps.tag_and_prepare_release.outputs.tag
-        run: echo "Assets built!"
-      - name: Verify Changelog
-        if: steps.tag_and_prepare_release.outputs.tag
-        run: echo "Verify if Changelog has correct version header"
       - name: Upload release notes and package
         if: steps.tag_and_prepare_release.outputs.tag
         uses: serucee/github-create-release-action@master
