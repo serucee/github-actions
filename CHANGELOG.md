@@ -1,12 +1,8 @@
 # Changelog
 
-## v1.0.4
-
-Test workflow v1.0.4
-
 ## v1.0.3
 
-Test workflow
+Test workflow 1.0.3
 
 ## v1.0.2
 
