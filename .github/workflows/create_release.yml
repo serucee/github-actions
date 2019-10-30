@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build assets
-      run: echo "Assets built!"
+        run: echo "Assets built!"
       - name: Verify Changelog
         run: echo "Verify if Changelog has correct version header"
       - name: Tag and prepare release
