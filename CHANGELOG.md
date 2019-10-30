@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.0.3
+
+Test workflow
+
+## v1.0.2
+
+Test release cause everything works
+
+## v1.0.1
+
+Test release cause everything works
+
 ## v1.0.0
 
 Major release cause everything works
