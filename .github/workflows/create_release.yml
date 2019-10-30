@@ -7,8 +7,7 @@ name: Create release # name displayed in the web interface
 #    branches:
 #      - 'refs/tags/*'
 
-on:
-  create
+on: push
 #deployment
 
 #on:
@@ -21,6 +20,7 @@ jobs: # contains all jobs
     steps:
       - name: Checkout code
         if: startsWith(github.ref, 'refs/tags/')
+        #if: startsWith(github.ref_type, 'tag')
         uses: actions/checkout@v1
       - name: Build Package
         if: startsWith(github.ref, 'refs/tags/')
