@@ -13,9 +13,12 @@ jobs: # contains all jobs
       - name: Bump version and push tag
         id: create_tag
         #uses: anothrNick/github-tag-action@master
-        uses: WiktorJ/github-tag-action@2.0.0
+        #uses: WiktorJ/github-tag-action@2.0.0
+        uses: serucee/github-tac-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BRANCHES: master
+          DEFAULT_BUMP: patch
 #      - name: Create tag
 #        run: |
 #          ls
