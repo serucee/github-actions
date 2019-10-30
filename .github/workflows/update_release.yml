@@ -1,8 +1,6 @@
 name: Update Release
 
-on:
-  release:
-    types: [published, created]
+on: release
 
 jobs:
   build:
