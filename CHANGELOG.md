@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.3
+
+Test new workflow
+
 ## v0.0.2
 
 Test pull request merged  
