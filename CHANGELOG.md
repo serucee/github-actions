@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.0
+
+Major release cause everything works
+
 ## v0.0.5
 
 Test changed workflow trigger
