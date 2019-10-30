@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.0
+
+Bump v3.0.0-major test changelog
+
 ## v2.0.2
 
 Bump v2.0.2-patch test changelog
