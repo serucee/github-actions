@@ -27,9 +27,9 @@ jobs:
         uses: serucee/github-create-release-action@master
         with:
           update_existing: true
-          tag: steps.tag_and_prepare_release.outputs.tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CREATED_TAG: steps.tag_and_prepare_release.outputs.tag
 #      - name: Update release notes
 #        uses: Roang-zero1/github-create-release-action@master
 #      - name: Build assets
