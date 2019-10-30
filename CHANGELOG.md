@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.1
+
+Bump v2.0.1-patch test changelog
+
 ## v2.0.0
 
 Bump major
