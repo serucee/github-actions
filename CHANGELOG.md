@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.5
+
+Test changed workflow trigger
+
 ## v0.0.4
 
 Test changed workflow trigger
