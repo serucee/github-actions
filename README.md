@@ -1,11 +1,11 @@
 # github-actions  
-### General information
+## General information
 /.github/workflows contains the currently used workflows  
 /testing_workflows contains workflows that are currently beeing evaluated, tested, or kept to play around  
 
-### Explanation for every workflow.yml file  
+## Explanation for every workflow.yml file  
 
-## label_pull_request.yml (Label Pull Request)
+### label_pull_request.yml (Label Pull Request)
 
 Whenever a pull request is opened, edited, synchronized, reopened  
 this workflow gets triggered.  
@@ -26,7 +26,7 @@ The labels get assigned based on our branch naming convention.
 *-patch, *-minor, *-major lead to patch, minor, major label
 *-tests, *-documentation, *-configuration, *-force lead to no-release label  
 
-## create_release.yml (Create Release)
+### create_release.yml (Create Release)
 
 Whenever a pull request is closed this action gets triggered.  
 Additionally it has a gatekeeper by the check if the pull request was merged and the head_ref started with RC  
