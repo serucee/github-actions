@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.0
+
+Bump major
+
 ## v1.0.4
 
 Test workflow 1.0.4
