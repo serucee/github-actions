@@ -10,8 +10,6 @@ jobs:
     if: github.event.pull_request.merged && startsWith(github.head_ref, 'RC')
     steps:
       - uses: actions/checkout@master
-      - name: Build assets
-        run: echo "Assets built!"
       - name: Verify Changelog
         run: echo "Verify if Changelog has correct version header" # check if CHANGELOG.md contains ## next semver tag
       - name: Tag and prepare release
@@ -21,7 +19,7 @@ jobs:
           release_branch: master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload release notes and package
+      - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
         uses: serucee/github-create-release-action@master
         with:
@@ -29,3 +27,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CREATED_TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
+      - name: Create release package # Replace with script that builds package and gets params passed that are required for different repos
+        #zip something, output asset_path and asset_name
+        run: |
+          zip --junk-paths my-artifact README.md
+          echo "Assets built!"
+      - name: Upload release package
+        id: upload_release_assets
+        uses: svenstaro/upload-release-action@1.0.1
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: my-artifact.zip
+          asset_name: my-artifact.zip # Replace with param of output Create release package (wirecard-woocommerce-ee.zip...)
+          tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
+          overwrite: true
