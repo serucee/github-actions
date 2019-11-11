@@ -51,4 +51,13 @@ It contains the following **Actions**:
   * uses serucee/github-create-release-action
   * Updates the previously created release (passed as param)
     * Adds release notes
-    * TODO Upload created build artifact
+
+## TODO
+
+### Create script for release package creation
+* Pass params as env for every different shop system
+* Script contains switch case for all shop systems and decides what to add to the release package
+* Outputs release package filename (what has to be uploaded) and the displayed filename for the release
+
+### Github settings
+* Add label_pull_request.yml as mandatory check before merge can happen
