@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.0.0
+
+* Do stuff and bump changelog
+* Test me
+
 ## v4.0.2
 
 * Add release package upload
