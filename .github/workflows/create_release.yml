@@ -32,6 +32,19 @@ jobs:
         run: |
           zip --junk-paths my-artifact README.md
           echo "Assets built!"
+        # example:
+        # - name: Build package
+        # id: build_package
+        # uses: wirecard/create-release-package
+        # either with or env:
+        # build_repo: magento, woocomerce, ... - used for switch/case in main script of action to decide
+        # what method (split in different files, can be any programming language) is called,
+        # decides what package is built
+        # in php this could be done with an interface e.g. iBuildPackage -> build
+        # MagentoBuildPackage implements build (result is the package, filename, package_name)
+        # OUTPUTS:
+        # file_name created, to be used in upload_release package
+        # package_name: e.g. magento-ee.zip (display name for web/releases)
       - name: Upload release package
         id: upload_release_assets
         uses: svenstaro/upload-release-action@1.0.1
