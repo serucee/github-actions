@@ -16,3 +16,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # possible values: patch, minor, major, other stuff defined = no release
+        # make mandatory check pass before merge
