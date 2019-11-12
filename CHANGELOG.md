@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.1
+
+* Bump version to trigger release
+
 ## v5.0.0
 
 * Do stuff and bump changelog
