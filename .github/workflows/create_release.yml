@@ -27,28 +27,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CREATED_TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
-      - name: Create release package # Replace with script that builds package and gets params passed that are required for different repos
-        #zip something, output asset_path and asset_name
+      - name: Create release package
         uses: serucee/php-artifact-action@master
-        # example:
-        # - name: Build package
-        # id: build_package
-        # uses: wirecard/create-release-package
-        # either with or env:
-        # build_repo: magento, woocomerce, ... - used for switch/case in main script of action to decide
-        # what method (split in different files, can be any programming language) is called,
-        # decides what package is built
-        # in php this could be done with an interface e.g. iBuildPackage -> build
-        # MagentoBuildPackage implements build (result is the package, filename, package_name)
-        # OUTPUTS:
-        # file_name created, to be used in upload_release package
-        # package_name: e.g. magento-ee.zip (display name for web/releases)
       - name: Upload release package
         id: upload_release_assets
         uses: svenstaro/upload-release-action@1.0.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: artifact.zip
-          asset_name: my-artifact.zip # Replace with param of output Create release package (wirecard-woocommerce-ee.zip...)
+          asset_name: my-artifact.zip # Replace with expected asset name for web view
           tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
           overwrite: true
