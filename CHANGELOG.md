@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.0.0
+
+* Add release package creation
+
 ## v5.0.1
 
 * Bump version to trigger release
