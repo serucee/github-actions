@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.0.1
+
+* Update release action
+
 ## v6.0.0
 
 * Add release package creation
