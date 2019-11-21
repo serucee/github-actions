@@ -21,7 +21,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
-        uses: serucee/github-create-release-action@Optional-entrypoint
+        uses: serucee/github-create-release-action@master
         with:
           CREATED_TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
         env:
