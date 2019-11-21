@@ -21,12 +21,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
-        uses: serucee/github-create-release-action@master
+        uses: serucee/github-create-release-action@Optional-entrypoint
         with:
-          update_existing: true
+          CREATED_TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CREATED_TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
       - name: Create release package
         uses: serucee/php-artifact-action@master
       - name: Upload release package
