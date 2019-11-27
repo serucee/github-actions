@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.1.2
+
+* Test
+
 ## v6.1.1
 
 * Improve error messages in release creation
