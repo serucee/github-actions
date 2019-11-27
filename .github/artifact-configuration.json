@@ -1,8 +1,6 @@
 {
   "package": {
     "type": "zip",
-    "execution-path": "/github/workspace",
-    "file-blacklist": ["*IGNOREME*"],
-    "folder-blacklist": ["/ignoredFolder/", "*.git*", "*ignoreMePlease/*"]
+    "execution-path": "/github/workspace"
   }
 }
