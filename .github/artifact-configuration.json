@@ -2,7 +2,7 @@
   "package": {
     "type": "zip",
     "execution-path": "/github/workspace",
-    "file-blacklist": [".gitignore"],
+    "file-blacklist": [".gitignore", "artifact-configuration.json"],
     "folder-blacklist": ["*workflows*"]
   }
 }
