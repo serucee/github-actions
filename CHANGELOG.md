@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.1.1
+
+* Improve error messages in release creation
+
 ## v6.1.0
 
 * Test blacklist for files and folders
