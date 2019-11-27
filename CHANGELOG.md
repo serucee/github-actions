@@ -3,6 +3,7 @@
 ## v6.0.2
 
 * Update release build action
+* Retest release
 
 ## v6.0.1
 
