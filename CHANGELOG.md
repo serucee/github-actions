@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.2.0
+
+* Test release package building
+
 ## v6.1.2
 
 * Test
