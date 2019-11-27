@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.1.0
+
+*Test blacklist for files and folders
+
 ## v6.0.2
 
 * Update release build action
