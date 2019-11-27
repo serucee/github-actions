@@ -3,6 +3,7 @@
 ## v6.1.0
 
 * Test blacklist for files and folders
+* Test blacklists
 
 ## v6.0.2
 
