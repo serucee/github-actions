@@ -4,6 +4,7 @@
 
 * Update release build action
 * Retest release
+* Retest package build fix
 
 ## v6.0.1
 
