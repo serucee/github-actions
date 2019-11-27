@@ -3,7 +3,6 @@
 ## v6.1.1
 
 * Improve error messages in release creation
-* Abc
 
 ## v6.1.0
 
