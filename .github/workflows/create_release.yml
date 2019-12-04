@@ -23,7 +23,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push tag
-        run: git tag ${{ steps.tag_and_prepare_release.outputs.tag }} && git push origin ${{ steps.tag_and_prepare_release.outputs.tag }}
+        run: git tag -a ${{ steps.tag_and_prepare_release.outputs.tag }} -m "$(date)" && git push origin ${{ steps.tag_and_prepare_release.outputs.tag }}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
         uses: serucee/github-create-release-action@master
