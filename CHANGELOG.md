@@ -1,5 +1,14 @@
 # Changelog
 
+## v6.5.0
+
+* Testing annotated tag
+
+|  Overview | test version | PHP 5.6 | PHP 7.0 | PHP 7.1 | PHP 7.2 |  
+|---|---|:---:|:---:|:---:|:---:|  
+| **Tested version(s)** | TEST sdg | &#9989; | &#9989; | &#9989; | &#9989; |  
+| **Compatibility** | test asd | &#9989; | &#9989; | &#9989; | &#9989; |  
+
 ## v6.4.0
 
 * Testing lightweight tag
