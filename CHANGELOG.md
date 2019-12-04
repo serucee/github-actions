@@ -5,6 +5,7 @@
 * Test release. Title missing.
 * Test release note
 * Another test
+* Bump
 
 |  Overview | test version | PHP 5.6 | PHP 7.0 | PHP 7.1 | PHP 7.2 |  
 |---|---|:---:|:---:|:---:|:---:|  
