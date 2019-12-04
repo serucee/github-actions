@@ -26,7 +26,7 @@ jobs:
         run: git tag -a ${{ steps.tag_and_prepare_release.outputs.tag }} -m "Pre release" && git push origin ${{ steps.tag_and_prepare_release.outputs.tag }}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
-        uses: serucee/github-create-release-action@test-title
+        uses: serucee/github-create-release-action@master
         with:
           created_tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
           update_title: repository ${{steps.tag_and_prepare_release.outputs.tag}} # Replace repository with the desired name
