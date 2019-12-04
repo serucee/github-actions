@@ -3,7 +3,7 @@
 ## v6.6.0
 
 * Test release. Title missing.
-* Test release note
+* Release note
 * Another test
 * Bump
 
