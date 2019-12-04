@@ -4,14 +4,20 @@
 
 * Test release package building
 
+## v6.2.1
+
+* Test
+* More release notes
+
+|  Overview | test version | PHP 5.6 | PHP 7.0 | PHP 7.1 | PHP 7.2 |  
+|---|---|:---:|:---:|:---:|:---:|  
+| **Tested version(s)** | TEST sdg | &#9989; | &#9989; | &#9989; | &#9989; |  
+| **Compatibility** | test asd | &#9989; | &#9989; | &#9989; | &#9989; |  
+
 ## v6.2.0
 
 * Test release package building
 * Test update
-
-## v6.1.2
-
-* Test
 
 ## v6.1.1
 
