@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged && startsWith(github.head_ref, 'RC')
     steps:
-      - uses: actions/checkout@v1.2.0
+      - uses: actions/checkout@v1
       - name: Verify Changelog
         run: echo "Verify if Changelog has correct version header" # check if CHANGELOG.md contains ## next semver tag
       - name: Tag and prepare release
