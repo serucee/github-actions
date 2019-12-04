@@ -20,8 +20,6 @@ jobs:
           release_strategy: tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: test
-        run: echo ${{steps.tag_and_prepare_release_outputs.tag}}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
         uses: serucee/github-create-release-action@master
