@@ -2,10 +2,6 @@
 
 ## v6.2.1
 
-* Test release package building
-
-## v6.2.1
-
 * Test
 * More release notes
 
