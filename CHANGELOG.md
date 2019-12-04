@@ -3,6 +3,7 @@
 ## v7.0.0
 
 * Adjust tagging workflow
+* More release notes
 
 |  Overview | test version | PHP 5.6 | PHP 7.0 | PHP 7.1 | PHP 7.2 |  
 |---|---|:---:|:---:|:---:|:---:|  
