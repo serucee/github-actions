@@ -3,6 +3,7 @@
 ## v6.6.0
 
 * Test release. Title missing.
+* Test release note
 
 |  Overview | test version | PHP 5.6 | PHP 7.0 | PHP 7.1 | PHP 7.2 |  
 |---|---|:---:|:---:|:---:|:---:|  
