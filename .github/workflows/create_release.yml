@@ -13,7 +13,7 @@ jobs:
         with:
           ref: 'master'
       - name: Set global git conf
-        run: git config --global user.email "sebastian.russmann@wirecard.com" && git config --global user.name "serucee"
+        run: git config --global user.email "sebastian.russmann@wirecard.com" && git config --global user.name "github-actions"
       - name: Tag and prepare release
         id: tag_and_prepare_release
         uses: K-Phoen/semver-release-action@master
