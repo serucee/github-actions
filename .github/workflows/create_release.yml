@@ -22,7 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
-        uses: serucee/github-create-release-action@master
+        uses: serucee/github-create-release-action@test
         with:
           created_tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
         env:
