@@ -13,7 +13,7 @@ jobs:
         with:
           ref: 'master'
       - name: Set global git conf
-        run: git config --global user.email "sebastian.russmann@wirecard.com" && git config --global user.name "github-actions"
+        run: git config --global user.email "" && git config --global user.name "github-actions"
       - name: Tag and prepare release
         id: tag_and_prepare_release
         uses: K-Phoen/semver-release-action@master
@@ -26,7 +26,7 @@ jobs:
         run: git tag -a ${{ steps.tag_and_prepare_release.outputs.tag }} -m "$(date)" && git push origin ${{ steps.tag_and_prepare_release.outputs.tag }}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
-        uses: serucee/github-create-release-action@test-title
+        uses: serucee/github-create-release-action@master
         with:
           created_tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
           update_title: magento-ee ${{steps.tag_and_prepare_release.outputs.tag}}

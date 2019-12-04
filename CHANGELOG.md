@@ -2,7 +2,7 @@
 
 ## v6.6.0
 
-* Add update title to action
+* Test release. Title missing.
 
 |  Overview | test version | PHP 5.6 | PHP 7.0 | PHP 7.1 | PHP 7.2 |  
 |---|---|:---:|:---:|:---:|:---:|  
