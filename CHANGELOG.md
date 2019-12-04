@@ -7,6 +7,7 @@
 ## v6.2.0
 
 * Test release package building
+* Test update
 
 ## v6.1.2
 
