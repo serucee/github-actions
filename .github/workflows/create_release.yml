@@ -24,7 +24,7 @@ jobs:
         if: steps.tag_and_prepare_release.outputs.tag
         uses: serucee/github-create-release-action@master
         with:
-          created_tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
+          CREATED_TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create release package
