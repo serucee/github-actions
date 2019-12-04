@@ -29,7 +29,7 @@ jobs:
         uses: serucee/github-create-release-action@master
         with:
           created_tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
-          update_title: repository ${{steps.tag_and_prepare_release.outputs.tag}} # Replace repository with the desired name
+          release_title: repository ${{steps.tag_and_prepare_release.outputs.tag}} # Replace repository with the desired name
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create release package
