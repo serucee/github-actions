@@ -23,7 +23,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push tag
-        run: git tag -a ${{ steps.tag_and_prepare_release.outputs.tag }} -m "$(date)" && git push origin ${{ steps.tag_and_prepare_release.outputs.tag }}
+        run: git tag -a ${{ steps.tag_and_prepare_release.outputs.tag }} -m "Pre release" && git push origin ${{ steps.tag_and_prepare_release.outputs.tag }}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
         uses: serucee/github-create-release-action@test-title
@@ -32,14 +32,14 @@ jobs:
           update_title: release-title ${{steps.tag_and_prepare_release.outputs.tag}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      - name: Create release package
-#        uses: serucee/php-artifact-action@master
-#      - name: Upload release package
-#        id: upload_release_assets
-#        uses: svenstaro/upload-release-action@1.0.1
-#        with:
-#          repo_token: ${{ secrets.GITHUB_TOKEN }}
-#          file: artifact.zip
-#          asset_name: my-artifact.zip # Replace with expected asset name for web view
-#          tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
-#          overwrite: true
+      - name: Create release package
+        uses: serucee/php-artifact-action@master
+      - name: Upload release package
+        id: upload_release_assets
+        uses: svenstaro/upload-release-action@1.0.1
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: artifact.zip
+          asset_name: my-artifact.zip # Replace with expected asset name for web view
+          tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
+          overwrite: true
